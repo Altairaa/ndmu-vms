@@ -11,7 +11,7 @@ class Post extends Model
      *
      * @var string
      */
-    protected $table = 'Post';
+    protected $table = 'posts';
 
     /**
     * The database primary key value.
@@ -25,7 +25,7 @@ class Post extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['title', 'content', 'category', 'user_id'];
 
     
 }

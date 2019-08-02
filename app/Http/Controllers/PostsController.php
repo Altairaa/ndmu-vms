@@ -21,12 +21,16 @@ class PostsController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $posts = Post::latest()->paginate($perPage);
+            $posts = Post::where('title', 'LIKE', "%$keyword%")
+                ->orWhere('content', 'LIKE', "%$keyword%")
+                ->orWhere('category', 'LIKE', "%$keyword%")
+                ->orWhere('user_id', 'LIKE', "%$keyword%")
+                ->latest()->paginate($perPage);
         } else {
             $posts = Post::latest()->paginate($perPage);
         }
 
-        return view('directory.posts.index', compact('posts'));
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -36,7 +40,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('directory.posts.create');
+        return view('posts.create');
     }
 
     /**
@@ -48,12 +52,14 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validate($request, [
+			'title' => 'required|max:10'
+		]);
         $requestData = $request->all();
         
         Post::create($requestData);
 
-        return redirect('admin/posts')->with('flash_message', 'Post added!');
+        return redirect('posts')->with('flash_message', 'Post added!');
     }
 
     /**
@@ -67,7 +73,7 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        return view('directory.posts.show', compact('post'));
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -81,7 +87,7 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        return view('directory.posts.edit', compact('post'));
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -94,13 +100,15 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $this->validate($request, [
+			'title' => 'required|max:10'
+		]);
         $requestData = $request->all();
         
         $post = Post::findOrFail($id);
         $post->update($requestData);
 
-        return redirect('admin/posts')->with('flash_message', 'Post updated!');
+        return redirect('posts')->with('flash_message', 'Post updated!');
     }
 
     /**
@@ -114,6 +122,6 @@ class PostsController extends Controller
     {
         Post::destroy($id);
 
-        return redirect('admin/posts')->with('flash_message', 'Post deleted!');
+        return redirect('posts')->with('flash_message', 'Post deleted!');
     }
 }

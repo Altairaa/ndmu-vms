@@ -40,3 +40,4 @@ Route::get('attendance', function(){
 Route::get('reports', function(){
 	return view('reports');
 });
+Route::resource('posts', 'PostsController');
