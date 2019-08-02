@@ -11,10 +11,32 @@
 |
 */
 
+
+
+
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('hello-world', function(){
-	return 'hello world';
+//Route::resource('posts', 'PostsController');
+
+
+Route::get('dashboard', function(){
+	return view('dashboard');
+});
+
+Route::get('student', function(){
+	return view('student');
+});
+
+Route::get('event', function(){
+	return view('event');
+});
+
+Route::get('attendance', function(){
+	return view('attendance');
+});
+
+Route::get('reports', function(){
+	return view('reports');
 });
