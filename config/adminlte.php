@@ -111,17 +111,17 @@ return [
 
         [
             'text' => 'Student',
-            'url'  => 'student',
+            'url'  => 'students',
             'icon' => 'user',
         ],
         [
             'text' => 'Event',
-            'url'  => 'event',
+            'url'  => 'events',
             'icon' => 'user',
         ],
         [
             'text' => 'Attendance',
-            'url'  => 'attendance',
+            'url'  => 'attendances',
             'icon' => 'user',
         ],
         [

@@ -1,0 +1,276 @@
+{
+    "fields": [
+        {
+            "name": "id_number",
+            "type": "string"
+        },
+        {
+            "name": "last_name",
+            "type": "string"
+        },
+
+        {
+            "name": "first_name",
+            "type": "string"
+        },
+
+        {
+            "name": "middle_name",
+            "type": "string"
+        },
+
+        {
+            "name": "sport_id",
+            "type": "integer#unsigned"
+        },
+
+        {
+            "name": "semester_id",
+            "type": "integer#unsigned"
+        },
+
+        {
+            "name": "Semester",
+            "type": "select",
+            "options": {
+                "firstSem": "1st Semester",
+                "secondSem": "2nd Semester",
+                "summer": "Summer"
+            }
+        },
+
+        {
+            "name": "birth_date",
+            "type": "date"
+        },
+
+        {
+            "name": "gender",
+            "type": "select",
+            "options": {
+                "female": "Female",
+                "male": "Male"
+            }
+        },
+
+        {
+            "name": "course",
+            "type": "string"
+        },
+
+        {
+            "name": "year",
+            "type": "integer"
+        },
+
+        {
+            "name": "contact_number",
+            "type": "string"
+        },
+
+        {
+            "name": "street",
+            "type": "string"
+        },
+
+        {
+            "name": "city_or_municipality",
+            "type": "string"
+        },
+
+        {
+            "name": "province",
+            "type": "string"
+        },
+
+        {
+            "name": "PE111",
+            "type": "string"
+        },
+
+        {
+            "name": "PE112",
+            "type": "string"
+        },
+
+        {
+            "name": "PE121",
+            "type": "string"
+        },
+
+        {
+            "name": "PE122",
+            "type": "string"
+        },
+
+        {
+            "name": "NSTP1",
+            "type": "string"
+        },
+
+        {
+            "name": "NSTP2",
+            "type": "string"
+        },
+
+        {
+            "name": "contact_person_id",
+            "type": "integer#unsigned"
+        }
+    ],
+
+    "foreign_keys": [
+        {
+            "column": "sport_id",
+            "references": "id",
+            "on": "sports",
+            "onDelete": "cascade"
+        },
+
+        {
+            "column": "semester_id",
+            "references": "id",
+            "on": "semesters",
+            "onDelete": "cascade"
+        },
+
+        {
+            "column": "contact_person_id",
+            "references": "id",
+            "on": "ContactPersons",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "sport",
+            "type": "belongsTo",
+            "class": "App\\Sport"
+        },
+        {
+            "name": "semester",
+            "type": "belongsTo",
+            "class": "App\\Semester"
+        },
+        {
+            "name": "ContactPerson",
+            "type": "belongsTo",
+            "class": "App\\ContactPerson"
+        }
+    ],
+    "validations": [
+        {
+            "field": "title",
+            "rules": "required"
+        },
+        {
+            "field": "title",
+            "rules": "required"
+        },
+
+        {
+            "field": "id_number",
+            "rules": "required"
+        },
+        {
+            "field": "last_name",
+            "rules": "required"
+        },
+
+        {
+            "field": "first_name",
+            "rules": "required"
+        },
+
+        {
+            "field": "middle_name",
+            "rules": "required"
+        },
+
+        {
+            "field": "sport_id",
+            "rules": "required"
+        },
+
+        {
+            "field": "semester_id",
+            "rules": "required"
+        },
+
+        {
+            "field": "Semester",
+            "rules": "required"
+        },
+
+        {
+            "field": "birth_date",
+            "rules": "required"
+        },
+
+        {
+            "field": "gender",
+            "rules": "required"
+        },
+
+        {
+            "field": "course",
+            "rules": "required"
+        },
+
+        {
+            "field": "year",
+            "rules": "required"
+        },
+
+        {
+            "field": "contact_number",
+            "rules": "required"
+        },
+
+        {
+            "field": "street",
+            "rules": "required"
+        },
+
+        {
+            "field": "city_or_municipality",
+            "rules": "required"
+        },
+
+        {
+            "field": "province",
+            "rules": "required"
+        },
+
+        {
+            "field": "PE111",
+            "rules": "required"
+        },
+
+        {
+            "field": "PE112",
+            "rules": "required"
+        },
+
+        {
+            "field": "PE121",
+            "rules": "required"
+        },
+
+        {
+            "field": "PE122",
+            "rules": "required"
+        },
+
+        {
+            "field": "NSTP1",
+            "rules": "required"
+        },
+
+        {
+            "field": "NSTP2",
+            "rules": "required"
+        }
+
+    ]
+}

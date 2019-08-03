@@ -1,0 +1,56 @@
+{
+    "fields": [
+         {
+            "name": "event_id",
+            "type": "integer"
+        },
+
+        {
+            "name": "event_date",
+            "type": "date"
+        },
+
+        {
+            "name": "event_description",
+            "type": "string"
+        },
+
+        {
+            "name": "time_in",
+            "type": "time"
+        },
+
+        {
+            "name": "time_out",
+            "type": "time"
+        }
+
+    ],
+
+    
+    "validations": [
+        {
+            "field": "event_id",
+            "rules": "required"
+        },
+        {
+            "field": "event_date",
+            "rules": "required"
+        },
+
+        {
+            "field": "event_description",
+            "rules": "required"
+        },
+
+        {
+            "field": "time_in",
+            "rules": "required"
+        },
+        
+        {
+            "field": "time_out",
+            "rules": "required"
+        }
+    ]
+}

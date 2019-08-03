@@ -1,0 +1,107 @@
+{
+    "fields": [
+        {
+            "name": "scheduled_event_id",
+            "type": "integer"
+        },
+
+        {
+            "name": "student_id",
+            "type": "integer"
+        },
+
+
+        {
+            "name": "event_id",
+            "type": "integer#unsigned"
+        },
+
+        {
+            "name": "event_date",
+            "type": "date"
+        },
+
+        {
+            "name": "time_in",
+            "type": "time"
+        },
+
+        {
+            "name": "time_out",
+            "type": "time"
+        }
+    ],
+
+    "foreign_keys": [
+        {
+            "column": "student_id",
+            "references": "id",
+            "on": "students",
+            "onDelete": "cascade"
+        },
+
+        {
+            "column": "event_id",
+            "references": "id",
+            "on": "events",
+            "onDelete": "cascade"
+        },
+
+        {
+            "column": "event_date",
+            "references": "date",
+            "on": "events",
+            "onDelete": "cascade"
+        }
+    ],
+
+    "relationships": [
+        {
+            "name": "student_id",
+            "type": "belongsTo",
+            "class": "App\\Students"
+        },
+        {
+            "name": "event_id",
+            "type": "belongsTo",
+            "class": "App\\Events"
+        },
+        {
+            "name": "event_date",
+            "type": "belongsTo",
+            "class": "App\\Events"
+        }
+
+    ],
+
+    "validations": [
+        {
+            "field": "scheduled_event_id",
+            "rules": "required"
+        },
+
+        {
+            "field": "student_id",
+            "rules": "required"
+        },
+
+        {
+            "field": "event_id",
+            "rules": "required"
+        },
+
+        {
+            "field": "event_date",
+            "rules": "required"
+        },
+
+        {
+            "field": "time_in",
+            "rules": "required"
+        },
+        {
+            "field": "time_out",
+            "rules": "nullable"
+        }
+    ]
+}

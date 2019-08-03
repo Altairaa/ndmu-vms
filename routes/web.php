@@ -25,13 +25,13 @@ Route::get('dashboard', function(){
 	return view('dashboard');
 });
 
-Route::get('student', function(){
-	return view('student');
-});
+// Route::get('student', function(){
+// 	return view('student');
+// });
 
-Route::get('event', function(){
-	return view('event');
-});
+// Route::get('events', function(){
+// 	return view('events');
+// });
 
 Route::get('attendance', function(){
 	return view('attendance');
@@ -41,3 +41,6 @@ Route::get('reports', function(){
 	return view('reports');
 });
 Route::resource('posts', 'PostsController');
+Route::resource('students', 'StudentsController');
+Route::resource('events', 'EventsController');
+Route::resource('attendances', 'AttendancesController');
